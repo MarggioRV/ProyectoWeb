@@ -17,7 +17,7 @@ public class apiController {
             return "¡Hola mundo " + nombre + "!";// Si no fuera false daría error al estar pidiendo ?nombre=algo
         }
 
-        @GetMapping("/movies") // ¡Estos Mapping son relativos a la ruta raiz!
+        @GetMapping("/movies") 
         public String GetAllMovies() {
             return "<h1>¡Aquí tienes todas las pelis!</h1>"; 
         }

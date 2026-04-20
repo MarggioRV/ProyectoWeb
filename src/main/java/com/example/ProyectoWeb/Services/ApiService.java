@@ -13,40 +13,49 @@ public class ApiService {
     @Autowired
     private MoviesRepository repository;
 
-    //CREATE
+    // CREATE
     public Movies crear(Movies movie) {
         return repository.save(movie); // JPA asigna ID automáticamente
     }
 
-    //READ - obtener todos
+    // READ - obtener todos
     public List<Movies> listar() {
         return repository.findAll();
     }
 
-    //READ - obtener por id
+    // READ - obtener por id
     public Movies buscarPorId(long id) {
         return repository.findById(id).orElse(null);
     }
-    //UPDATE
+
+    // UPDATE
     public Movies actualizar(long id, Movies movieActualizado) {
         Movies existente = repository.findById(id).orElse(null);
+
         if (existente != null) {
+
             existente.setTitulo(movieActualizado.getTitulo());
             existente.setDirector(movieActualizado.getDirector());
-            existente.setAnio_estreno(movieActualizado.getAnio_estreno());
-            existente.setActual(movieActualizado.isActual());
+            existente.setSinopsis(movieActualizado.getSinopsis());
+            existente.setGenero(movieActualizado.getGenero());
+            existente.setFormato(movieActualizado.getFormato());
+            existente.setIdioma(movieActualizado.getIdioma());
             existente.setImagen(movieActualizado.getImagen());
+            existente.setClasificacion(movieActualizado.getClasificacion());
+            existente.setFechaEstreno(movieActualizado.getFechaEstreno());
+
             return repository.save(existente);
         }
         return null; // no existe
     }
-    //DELETE
+
+    // DELETE
     public String eliminar(long id) {
         Movies existente = repository.findById(id).orElse(null);
         if (existente != null) {
             repository.deleteById(id);
             return "Movie " + id + " eliminada";
-            
+
         }
         return "Movie " + id + " no encontrada";
     }

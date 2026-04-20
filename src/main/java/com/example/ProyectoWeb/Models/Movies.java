@@ -1,5 +1,7 @@
 package com.example.ProyectoWeb.Models;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -8,30 +10,32 @@ public class Movies {
     @Id
     private long id;
     private String titulo;
-    private String Director;
-    private String anio_estreno;
-    private boolean isActual;
-    private String imagen;
+    private String director;
     private String sinopsis;
     private String genero;
     private String formato;
     private String idioma;
+    private String imagen;
+    private String Clasificacion;
+    private LocalDate fechaEstreno;
+    private LocalDate fechaFinCartelera;
 
     public Movies() {
     }
 
-    public Movies(long id, String titulo, String director, String anio_estreno, boolean isActual, String imagen,
-            String sinopsis, String genero, String formato, String idioma) {
+    public Movies(long id, String titulo, String director, String sinopsis, String genero, String formato,
+            String idioma, String imagen, String Clasificacion, LocalDate fechaEstreno, LocalDate fechaFinCartelera) {
         this.id = id;
         this.titulo = titulo;
-        Director = director;
-        this.anio_estreno = anio_estreno;
-        this.isActual = isActual;
-        this.imagen = imagen;
+        this.director = director;
         this.sinopsis = sinopsis;
         this.genero = genero;
         this.formato = formato;
         this.idioma = idioma;
+        this.imagen = imagen;
+        this.Clasificacion = Clasificacion;
+        this.fechaEstreno = fechaEstreno;
+        this.fechaFinCartelera = fechaFinCartelera;
     }
 
     public long getId() {
@@ -51,35 +55,11 @@ public class Movies {
     }
 
     public String getDirector() {
-        return Director;
+        return director;
     }
 
     public void setDirector(String director) {
-        Director = director;
-    }
-
-    public String getAnio_estreno() {
-        return anio_estreno;
-    }
-
-    public void setAnio_estreno(String anio_estreno) {
-        this.anio_estreno = anio_estreno;
-    }
-
-    public boolean isActual() {
-        return isActual;
-    }
-
-    public void setActual(boolean isActual) {
-        this.isActual = isActual;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+        this.director = director;
     }
 
     public String getSinopsis() {
@@ -112,5 +92,37 @@ public class Movies {
 
     public void setIdioma(String idioma) {
         this.idioma = idioma;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public LocalDate getFechaEstreno() {
+        return fechaEstreno;
+    }
+
+    public void setFechaEstreno(LocalDate fechaEstreno) {
+        this.fechaEstreno = fechaEstreno;
+    }
+
+    public LocalDate getFechaFinCartelera() {
+        return fechaFinCartelera;
+    }
+
+    public void setFechaFinCartelera(LocalDate fechaFinCartelera) {
+        this.fechaFinCartelera = fechaFinCartelera;
+    }
+
+    public String getClasificacion() {
+        return Clasificacion;
+    }
+
+    public void setClasificacion(String clasificacion) {
+        Clasificacion = clasificacion;
     }
 }

@@ -1,20 +1,13 @@
 package com.example.ProyectoWeb.Controller;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.example.ProyectoWeb.dto.Movies;
-
-import jakarta.annotation.Generated;
-
 import com.example.ProyectoWeb.Services.MovieService;
 
 @Controller

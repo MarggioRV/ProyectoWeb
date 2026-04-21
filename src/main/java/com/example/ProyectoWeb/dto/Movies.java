@@ -1,13 +1,8 @@
-package com.example.ProyectoWeb.Models;
+package com.example.ProyectoWeb.dto;
 
 import java.time.LocalDate;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-@Entity
 public class Movies {
-    @Id
+
     private long id;
     private String titulo;
     private String director;

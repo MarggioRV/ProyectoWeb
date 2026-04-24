@@ -11,15 +11,18 @@ public class Movies {
     private String formato;
     private String idioma;
     private String imagen;
-    private String Clasificacion;
+    private String clasificacion;
     private LocalDate fechaEstreno;
     private LocalDate fechaFinCartelera;
+    private int duracion;
+    private String distribuidora;
 
     public Movies() {
     }
 
     public Movies(long id, String titulo, String director, String sinopsis, String genero, String formato,
-            String idioma, String imagen, String Clasificacion, LocalDate fechaEstreno, LocalDate fechaFinCartelera) {
+            String idioma, String imagen, String clasificacion, LocalDate fechaEstreno, LocalDate fechaFinCartelera,
+            int duracion, String distribuidora) {
         this.id = id;
         this.titulo = titulo;
         this.director = director;
@@ -28,9 +31,11 @@ public class Movies {
         this.formato = formato;
         this.idioma = idioma;
         this.imagen = imagen;
-        this.Clasificacion = Clasificacion;
+        this.clasificacion = clasificacion;
         this.fechaEstreno = fechaEstreno;
         this.fechaFinCartelera = fechaFinCartelera;
+        this.duracion = duracion;
+        this.distribuidora = distribuidora;
     }
 
     public long getId() {
@@ -97,6 +102,14 @@ public class Movies {
         this.imagen = imagen;
     }
 
+    public String getClasificacion() {
+        return clasificacion;
+    }
+
+    public void setClasificacion(String clasificacion) {
+        this.clasificacion = clasificacion;
+    }
+
     public LocalDate getFechaEstreno() {
         return fechaEstreno;
     }
@@ -113,11 +126,20 @@ public class Movies {
         this.fechaFinCartelera = fechaFinCartelera;
     }
 
-    public String getClasificacion() {
-        return Clasificacion;
+    public int getDuracion() {
+        return duracion;
     }
 
-    public void setClasificacion(String clasificacion) {
-        Clasificacion = clasificacion;
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getDistribuidora() {
+        return distribuidora;
+    }
+
+    public void setDistribuidora(String distribuidora) {
+        this.distribuidora = distribuidora;
     }
 }
+

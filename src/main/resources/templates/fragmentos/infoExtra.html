@@ -1,0 +1,33 @@
+<!-- fragmentos/infoExtra.html -->
+<div th:fragment="infoExtra(movie)">
+
+    <div class="movie-info-extra">
+
+        <div class="info-item">
+            <h3>Plataforma donde ver</h3>
+            <p th:text="${movie.plataforma}"></p>
+        </div>
+
+        <div class="info-item">
+            <h3>Fecha Estreno</h3>
+            <p th:text="${movie.fechaEstreno}"></p>
+        </div>
+
+        <div class="info-item">
+            <h3>Salida de Cartelera</h3>
+            <p th:text="${movie.fechaFinCartelera}"></p>
+        </div>
+
+        <div class="info-item">
+            <h3>Fecha esperada streaming</h3>
+            <p th:text="${movie.fechaStreaming}"></p>
+        </div>
+
+        <div class="info-item">
+            <h3>Idioma</h3>
+            <p th:text="${movie.idioma}"></p>
+        </div>
+
+    </div>
+
+</div>

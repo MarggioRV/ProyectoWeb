@@ -1,10 +1,38 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <main class="movie-detail-layout">
+      <div class="movie-columns">
+        <!-- Columna izquierda -->
+        <div class="movie-col-left">
+          <div
+            th:replace="fragmentos/movie-image :: image(movie=${movie})"
+          ></div>
+          <div th:replace="fragmentos/InMain1 :: InMain1(movie=${movie})"></div>
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="movie-col-right">
+          <div
+            th:replace="fragmentos/selectorsOp :: selectorsOp(movie=${movie})"
+          ></div>
+
+          <div
+            th:replace="fragmentos/infoExtra :: infoExtra(movie=${movie})"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Carrusel inferior -->
+      <div class="movie-bottom">
+        <div
+          th:replace="fragmentos/carrusel1 :: carrusel1(movie=${movie})"
+        ></div>
+      </div>
+    </main>
+  </body>
 </html>

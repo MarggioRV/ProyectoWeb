@@ -18,6 +18,7 @@ public class MovieService {
     }
 
     public Movies getMovieById(int id) {
+        // Obtener data de la movie desde la API
         return restTemplate.getForObject(URL + "/" + id, Movies.class);
     }
 }

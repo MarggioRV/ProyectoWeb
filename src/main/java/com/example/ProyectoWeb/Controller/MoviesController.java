@@ -56,4 +56,15 @@ public class MoviesController {
 
                 return "movieDetalle";
         }
+
+        // Pagina para editar peli
+        // @GetMapping("/movie/edit")
+        // public class EditMovieController {
+        //         @GetMapping("/movie/edit/{id}")
+        //         public String editMovie(@PathVariable int id, Model model) {
+        //                 Movies movie = movieService.getMovieById(id);
+        //                 model.addAttribute("movie", movie);
+        //                 return "editMovie";
+        //         }
+        // }
 }

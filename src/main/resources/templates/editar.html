@@ -1,0 +1,217 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar Cinta</title>
+</head>
+<body>
+      <form action="#" method="post">
+
+        <section>
+          <h2>Información Personal</h2>
+          <!-- En ambos, solo se permite Letras. Cambio:"[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+ hace que letras y caracteres especiales se incluyan*/-->
+          <label for="nombre">Titulo:</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Esc el nombre de la cinta"
+            required
+            pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+"
+          /><br /><br />
+
+          <label for="apellido">Director:</label>
+          <input
+            type="text"
+            id="apellido"
+            name="apellido"
+            placeholder="Esc el nombre del Director"
+            required
+            pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+"
+          /><br /><br />
+
+          <!-- pattern="\d{4}-\d{2}-\d{2}" y placeholder="YYYY-MM-DD, puedo personalizar mejor las fechas"-->
+          <label for="fecha-estreno">Fecha de Estreno</label>
+          <input
+            type="date"
+            id="fecha-estreno"
+            name="fecha-estreno"
+            pattern="\d{4}-\d{2}-\d{2}"
+            placeholder="YYYY-MM-DD"
+            required
+          /><br /><br />
+
+          <!-- "if (this.value < 18) this.value = 18;" asegura que no se pueda ingresar una edad <18 -->
+          <label for="age">Edad:</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            min="18"
+            max="99"
+            placeholder="Introduce tu edad"
+            required
+            oninput="if (this.value < 18) this.value = 18;"
+            maxlength="2"
+          /><br /><br />
+
+          <label>Género:</label><br />
+          <input
+            type="radio"
+            id="masculino"
+            name="genero"
+            value="masculino"
+            required
+          />
+          <label for="masculino">Formato</label><br />
+
+          <!-- Gen1 -->
+          <input
+            type="radio"
+            id="femenino"
+            name="genero"
+            value=""
+            required
+          />
+          <label for="femenino">Femenino</label><br />
+
+          <input type="radio" id="otro" name="genero" value="otro" required />
+          <label for="otro">Otro</label><br /><br />
+        </section>
+
+        <section>
+          <h2>Información de Contacto</h2>
+
+          <label for="email">Correo Electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="ejemplo@educaand.com"
+            pattern="[a-zA-Z0-9._%+-]+@g\.educaand\.es"
+            title="Introduce tu correo de @g.educaand.es"
+            required
+          /><br /><br />
+
+          <label for="telefono">Número de Teléfono:</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            placeholder="+34 123 456 789"
+            pattern="\+34 [0-9]{3} [0-9]{3} [0-9]{3}"
+            maxlength="15"
+            required
+          /><br /><br />
+
+          <em>*Respetar los espacios.</em>
+          <br /><br />
+
+          <label for="direccion">Dirección:</label><br />
+          <!-- Campo de texto, varias líneas, permite ingresar grandes cantidades de texto-->
+          <textarea
+            id="direccion"
+            name="direccion"
+            placeholder="Introduce tu dirección completa"
+            rows="4"
+            cols="50"
+          ></textarea
+          ><br /><br />
+        </section>
+
+        <!-- Preferencias -->
+        <section>
+          <h2>Preferencias</h2>
+
+          <label for="color-preferido">Clasificacion</label>
+            <select name="color-preferido" id="color-preferido">
+                <option value="Azul" style="color: blue">NC-17</option>
+                <option value="Rojo" style="color: red">R</option>
+                <option value="Verde" style="color: rgb(214, 12, 241)">PG-13</option>
+                <option value="Amarillo" style="color: rgb(255, 191, 14)">PG</option>
+                <option value="Amarillo" style="color: rgb(10, 231, 243)">G</option>
+            </select
+          ><br /><br />
+
+          <label for="urlFavorita">Url Imagen:</label>
+          <input
+            type="url"
+            id="urlFavorita"
+            name="urlFavorita"
+            placeholder="https://example.com"
+            required
+          /><br /><br />
+
+          <label for="kaiju-favorito">Genero:</label>
+          <input
+            list="kaijus"
+            id="kaiju-favorito"
+            name="kaiju-favorito"
+            pattern="^\w+$"
+          />
+
+          <datalist id="kaijus">
+            <option value="Drama"></option>
+            <option value="Tragedia"></option>
+            <option value="Accion"></option>
+            <option value="Comedia"></option>
+          </datalist>
+          <br /><br />
+
+          <label for="corrienteArtistica"
+            >Corriente artística preferida</label>
+          <input
+            list="corrientesArtisticas"
+            id="corrienteArtistica"
+            name="corrienteArtistica"
+            placeholder="Ejemplo: Surrealismo"/>
+          <datalist id="corrientesArtisticas">
+            <option value="Renacimiento"></option>
+            <option value="Barroco"></option>
+            <option value="Realismo"></option>
+            <option value="Impresionismo"></option>
+            <option value="Cubismo"></option>
+            <option value="Surrealismo"></option>
+            <option value="Pop Art"></option>
+          </datalist>
+          <br /><br />
+          <!-- Espacio adicional -->
+          <label for="archivo">*Selecciona un archivo de ejemplo:</label>
+          <input type="file" id="archivo" /> <br /><br />
+
+          <label>Elige a tus hobbits preferidos:</label><br />
+          <input type="checkbox" id="frodo" name="hobbits" value="Frodo" />
+          <label for="frodo"> Frodo</label><br />
+          <input type="checkbox" id="sam" name="hobbits" value="Sam" />
+          <label for="sam"> Sam</label><br />
+          <input type="checkbox" id="merry" name="hobbits" value="Merry" />
+          <label for="merry"> Merry</label><br />
+          <input type="checkbox" id="pippin" name="hobbits" value="Pippin" />
+          <label for="pippin"> Pippin</label><br />
+          <input type="checkbox" id="bilbo" name="hobbits" value="Bilbo" />
+          <label for="bilbo"> Bilbo</label><br />
+          <input type="checkbox" id="Smeagol" name="hobbits" value="smeagol" />
+          <label for="smeagol"> Smeagol (Gollum)</label>
+        </section>
+
+        <section>
+          <h2>Pequeña Trivia</h2>
+          <label for="rango"
+            >¿Cuál estimas que es el nivel de poder de Paragus (Canon)?</label
+          >
+          <input
+            type="range"
+            id="rango"
+            min="0"
+            max="5000"
+            value="5000"
+            oninput="updateValue(this.value)"/>
+          <span id="rangeValue">5000</span><br />
+          <span id="feedback"></span> <!-- Para mostrar si el valor es correcto -->
+        </section>
+        <br /><br />
+
+        <input type="submit" value="Registrar" />
+      </form>
+</body>
+</html>

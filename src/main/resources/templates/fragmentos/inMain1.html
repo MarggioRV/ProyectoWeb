@@ -1,0 +1,33 @@
+<!-- fragmentos/InMain1.html -->
+<div th:fragment="inMain1(movie)">
+
+    <div class="movie-info-main">
+
+        <div class="info-item">
+            <h3>Género</h3>
+            <p th:text="${movie.genero}"></p>
+        </div>
+
+        <div class="info-item">
+            <h3>Sinopsis</h3>
+            <p th:text="${movie.sinopsis}"></p>
+        </div>
+
+        <div class="info-item">
+            <h3>Duración</h3>
+            <p th:text="${movie.duracion / 60} + 'h ' + (${movie.duracion % 60}) + 'm'"></p>
+        </div>
+
+        <div class="info-item">
+            <h3>Director</h3>
+            <p th:text="${movie.director}"></p>
+        </div>
+
+        <div class="info-item">
+            <h3>Clasificación</h3>
+            <p th:text="${movie.clasificacion}"></p>
+        </div>
+
+    </div>
+
+</div>

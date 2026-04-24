@@ -1,0 +1,18 @@
+<!-- fragmentos/selectorsOp.html -->
+<div th:fragment="selectorsOp(movie)">
+  <div class="movie-selectors">
+    <div class="selector-item">
+      <label for="formato">Formato</label>
+      <select id="formato" name="formato">
+        <option th:text="${movie.formato}"></option>
+      </select>
+    </div>
+
+    <div class="selector-item">
+      <label for="idioma">Idioma</label>
+      <select id="idioma" name="idioma">
+        <option th:text="${movie.idioma}"></option>
+      </select>
+    </div>
+  </div>
+</div>

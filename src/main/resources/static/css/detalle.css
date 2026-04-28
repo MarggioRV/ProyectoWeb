@@ -1,0 +1,127 @@
+/* ── BASE PANELS ── */
+.panel-main,
+.panel-extra {
+    background-color: #1b233d;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ── IMAGEN ── */
+.movie-image img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    max-height: 320px;
+}
+
+/* ── INFO ITEMS ── */
+.info-item {
+    padding: 0.75rem 1rem;
+    border-left: 7px solid #0891b2;
+    background-color: rgba(8, 145, 178, 0.05);
+    border-radius: 0 8px 8px 0;
+}
+
+.info-item p.label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(170,222,243,0.72);
+    margin-bottom: 4px;
+}
+
+.info-item p.valor {
+    font-size: 15px;
+    color: white;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Distinto, estilo centrado */
+.info-item.centrado {
+    border-left: none;
+    background-color: transparent;
+    text-align: center;
+}
+
+/* ── DIVIDER ── */
+.divider {
+    border-color: rgba(255,255,255,0.08);
+}
+
+/* ── CARRUSEL SECTION ── */
+.carrusel-section {
+    background-color: #1b233d;
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+/* ── BADGE BASE ── */
+.clas-badge,
+.fmt-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ── CLASIFICACIÓN ── */
+.clas-G     { background-color: #14532d; color: #86efac; }
+.clas-PG    { background-color: #1e3a5f; color: #93c5fd; }
+.clas-PG-13 { background-color: #713f12; color: #fde68a; }
+.clas-R     { background-color: #7c2d12; color: #fdba74; }
+.clas-NC-17 { background-color: #4c0519; color: #fda4af; }
+
+/* ── FORMATO ── */
+.fmt-2D   { background-color: #1e3a5f; color: #93c5fd; }
+.fmt-3D   { background-color: #14532d; color: #86efac; }
+.fmt-IMAX { background-color: #451a03; color: #fcd34d; }
+.fmt-4DX  { background-color: #3b0764; color: #d8b4fe; }
+
+/* ── IDIOMA BADGE ── */
+.idioma-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #07a1d4;
+    color: #042451;
+}
+
+/* ── TÍTULO GÉNERO BASE ── */
+.titulo-genero {
+    text-align: center;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+}
+
+/* ── COLORES POR GÉNERO ── */
+.genero-Terror        { background-color: #3b0000; color: #ff6b6b; }
+.genero-Horror        { background-color: #2d0047; color: #d8b4fe; }
+.genero-Accion        { background-color: #431407; color: #fb923c; }
+.genero-CienciaFiccion{ background-color: #0c1a4d; color: #93c5fd; }
+.genero-Drama         { background-color: #1a1a2e; color: #a5b4fc; }
+.genero-Comedia       { background-color: #3b2a00; color: #fde68a; }
+.genero-Tragedia      { background-color: #1c1c1c; color: #9ca3af; }
+.genero-Fantasia      { background-color: #1a0533; color: #c084fc; }
+.genero-Suspenso      { background-color: #0f2027; color: #67e8f9; }
+.genero-Animacion     { background-color: #0d3320; color: #6ee7b7; }
+.genero-Musical       { background-color: #2d1b4e; color: #f0abfc; }
+.genero-Western       { background-color: #2c1a00; color: #d97706; }
+.genero-Documental    { background-color: #1a2e1a; color: #86efac; }
+
+/* ── DIVIDER ── */
+.divider {
+    border-color: rgba(255,255,255,0.08);
+    margin: 0.5rem 0;
+}

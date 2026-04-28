@@ -1,0 +1,132 @@
+<div th:fragment="offcanvasFiltros">
+
+  <!-- Panel lateral que aparece desde la izquierda -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasFiltros">
+
+    <!-- Encabezado del panel -->
+    <div class="offcanvas-header">
+
+      <!-- Título del panel -->
+      <h5 class="offcanvas-title">Filtros</h5>
+
+      <!-- Botón de cierre Bootstrap -->
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas">
+      </button>
+
+    </div>
+
+    <!-- Cuerpo del panel -->
+    <div class="offcanvas-body">
+
+      <!-- Formulario GET que envía filtros a /movies -->
+      <form th:action="@{/movies}" method="get">
+
+        <!-- Sección de formato -->
+        <p class="offcanvas-section-title">Formato</p>
+
+        <!-- Opción: todos los formatos -->
+        <div class="form-check">
+          <input class="form-check-input" type="radio"
+                 name="formato" value=""
+                 checked id="fmt-todos"/>
+          <label class="form-check-label" for="fmt-todos">
+            Todos
+          </label>
+        </div>
+
+        <!-- Opción: formato 2D -->
+        <div class="form-check">
+          <input class="form-check-input" type="radio"
+                 name="formato" value="2D"
+                 id="fmt-2d"/>
+          <label class="form-check-label" for="fmt-2d">
+            2D
+          </label>
+        </div>
+
+        <!-- Opción: formato 3D -->
+        <div class="form-check">
+          <input class="form-check-input" type="radio"
+                 name="formato" value="3D"
+                 id="fmt-3d"/>
+          <label class="form-check-label" for="fmt-3d">
+            3D
+          </label>
+        </div>
+
+        <!-- Opción: formato IMAX -->
+        <div class="form-check">
+          <input class="form-check-input" type="radio"
+                 name="formato" value="IMAX"
+                 id="fmt-imax"/>
+          <label class="form-check-label" for="fmt-imax">
+            IMAX
+          </label>
+        </div>
+
+        <!-- Opción: formato 4DX -->
+        <div class="form-check">
+          <input class="form-check-input" type="radio"
+                 name="formato" value="4DX"
+                 id="fmt-4dx"/>
+          <label class="form-check-label" for="fmt-4dx">
+            4DX
+          </label>
+        </div>
+
+        <!-- Sección de idioma -->
+        <p class="offcanvas-section-title">Idioma</p>
+
+        <!-- Opción: todos los idiomas -->
+        <div class="form-check">
+          <input class="form-check-input" type="radio"
+                 name="idioma" value=""
+                 checked id="idm-todos"/>
+          <label class="form-check-label" for="idm-todos">
+            Todos
+          </label>
+        </div>
+
+        <!-- Opción: español -->
+        <div class="form-check">
+          <input class="form-check-input" type="radio"
+                 name="idioma" value="Español"
+                 id="idm-es"/>
+          <label class="form-check-label" for="idm-es">
+            Español
+          </label>
+        </div>
+
+        <!-- Opción: inglés -->
+        <div class="form-check">
+          <input class="form-check-input" type="radio"
+                 name="idioma" value="Inglés"
+                 id="idm-en"/>
+          <label class="form-check-label" for="idm-en">
+            Inglés
+          </label>
+        </div>
+
+        <!-- Opción: español latino -->
+        <div class="form-check">
+          <input class="form-check-input" type="radio"
+                 name="idioma" value="Español Latino"
+                 id="idm-lat"/>
+          <label class="form-check-label" for="idm-lat">
+            Español Latino
+          </label>
+        </div>
+
+        <!-- Botón para enviar filtros -->
+        <div class="mt-4">
+          <button type="submit" class="btn btn-info w-100">
+            Aplicar filtros
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

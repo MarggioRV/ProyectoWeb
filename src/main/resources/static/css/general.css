@@ -1,0 +1,221 @@
+body {
+  background-color: #0f172a;
+  color: white;
+}
+
+/* — Flatpickr custom — */
+.custom-date {
+  width: fit-content;
+  min-width: 160px;
+  max-width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+  text-align: center;
+  background-color: #0f172a;
+  color: white;
+}
+
+.custom-date:focus {
+  border: 1px solid #0891b2;
+  box-shadow: 0 0 5px rgba(8, 145, 178, 0.4);
+}
+
+/* — Flatpickr calendario oscuro — */
+.flatpickr-calendar {
+  background: #1b233d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}  
+
+.flatpickr-day {
+  color: white;
+}
+
+.flatpickr-day:hover,
+.flatpickr-day.selected {
+  background: #0891b2;
+  border-color: #0891b2;
+}
+
+.flatpickr-months .flatpickr-month,
+.flatpickr-weekday,
+.flatpickr-current-month {
+  color: rgba(170, 222, 243, 0.72) !important;
+  fill: rgba(170, 222, 243, 0.72) !important;
+}
+
+.flatpickr-day.flatpickr-disabled {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* — Formulario — */
+.form-panel {
+  background-color: #1b233d;
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.form-label {
+  color: rgba(170, 222, 243, 0.72);
+  font-size: 13px;
+}
+
+.form-control,
+.form-select {
+  background-color: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #0f172a;
+  border-color: #0891b2;
+  color: white;
+  box-shadow: 0 0 0 2px rgba(8, 145, 178, 0.25);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.form-select option {
+  background-color: #1b233d;
+}
+
+/* — Sidebar — */
+.preview-sidebar {
+  position: sticky;
+  top: 1rem;
+}
+
+.section-title {
+  color: rgba(170, 222, 243, 0.72);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* — Movie card — */
+.movie-card {
+  width: 260px;
+  border-radius: 20px;
+  background-color: #1b233d;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.movie-header {
+  height: 180px;
+  border-radius: 15px;
+  background: linear-gradient(to bottom right, #0891b2, #67e8f9);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.movie-img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.movie-title {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 19px;
+}
+
+.text-info-custom {
+  color: rgba(170, 222, 243, 0.72);
+  font-size: 13px;
+}
+
+.movie-card .card-body {
+  padding: 10px 5px;
+}
+.border-light-subtle {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* — Cards existentes — */
+.cards-section {
+  background-color: #1b233d;
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+/* btn comun */
+.btn-editar-card,
+.btn-eliminar-card {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  min-height: 28px;
+  background: transparent;
+}
+
+/* btn editar */
+.btn-editar-card {
+  border: 1px solid #0891b2;
+  color: #67e8f9;
+  text-decoration: none;
+}
+/* btn eliminar */
+.btn-eliminar-card {
+  border: 1px solid rgba(255, 80, 80, 0.4);
+  color: rgba(255, 120, 120, 0.8);
+  cursor: pointer;
+}
+
+/* btns hovers */
+.btn-editar-card:hover {
+  background: #0891b2;
+  color: white;
+}
+.btn-eliminar-card:hover {
+  background: rgba(255, 80, 80, 0.2);
+}
+
+/* — Alertas — */
+.alert-flotante {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 9999;
+  min-width: 300px;
+  animation: fadeInRight 0.3s ease;
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.card-clickable {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4) !important;
+}

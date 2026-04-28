@@ -1,217 +1,245 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingresar Cinta</title>
-</head>
-<body>
-      <form action="#" method="post">
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CineHV</title>
 
-        <section>
-          <h2>Información Personal</h2>
-          <!-- En ambos, solo se permite Letras. Cambio:"[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+ hace que letras y caracteres especiales se incluyan*/-->
-          <label for="nombre">Titulo:</label>
-          <input
-            type="text"
-            id="nombre"
-            name="nombre"
-            placeholder="Esc el nombre de la cinta"
-            required
-            pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+"
-          /><br /><br />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
+    
+    <link rel="stylesheet" th:href="@{/css/general.css}" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div th:replace="~{fragmentos/navbar2 :: navbar}"></div>
 
-          <label for="apellido">Director:</label>
-          <input
-            type="text"
-            id="apellido"
-            name="apellido"
-            placeholder="Esc el nombre del Director"
-            required
-            pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+"
-          /><br /><br />
+    <!-- ALERTA FLASH  -->
+    <div
+      th:if="${alertMsg}"
+      th:class="|alert alert-${alertTipo} alert-dismissible fade show alert-flotante|"
+      role="alert"
+    >
+      <span th:text="${alertMsg}">Mensaje</span>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Cerrar"
+      ></button>
+    </div>
 
-          <!-- pattern="\d{4}-\d{2}-\d{2}" y placeholder="YYYY-MM-DD, puedo personalizar mejor las fechas"-->
-          <label for="fecha-estreno">Fecha de Estreno</label>
-          <input
-            type="date"
-            id="fecha-estreno"
-            name="fecha-estreno"
-            pattern="\d{4}-\d{2}-\d{2}"
-            placeholder="YYYY-MM-DD"
-            required
-          /><br /><br />
+    <div class="container py-4">
+      <!-- FILA PRINCIPAL -->
+      <div class="row g-4">
+        <!-- COLUMNA FORMULARIO -->
+        <div class="col-md-8">
+          <div class="form-panel">
+            <h5
+              class="mb-4"
+              style="letter-spacing: 1px"
+              th:text="${movie.id != 0} ? 'Editar película' : 'Nueva película'"
+            >
+              Nueva película
+            </h5>
 
-          <!-- "if (this.value < 18) this.value = 18;" asegura que no se pueda ingresar una edad <18 -->
-          <label for="age">Edad:</label>
-          <input
-            type="number"
-            id="age"
-            name="age"
-            min="18"
-            max="99"
-            placeholder="Introduce tu edad"
-            required
-            oninput="if (this.value < 18) this.value = 18;"
-            maxlength="2"
-          /><br /><br />
+            <form
+              th:action="${movie.id != 0}
+                            ? @{/movie/editar/{id}(id=${movie.id})}
+                            : @{/movie/editar}"
+              th:object="${movie}"
+              method="post"
+              id="movieForm"
+            >
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label">Título *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{titulo}"
+                    placeholder="Ej: Inception"
+                    id="inp-titulo"
+                  />
+                </div>
 
-          <label>Género:</label><br />
-          <input
-            type="radio"
-            id="masculino"
-            name="genero"
-            value="masculino"
-            required
-          />
-          <label for="masculino">Formato</label><br />
+                <div class="col-md-6">
+                  <label class="form-label">Director *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{director}"
+                    placeholder="Ej:..."
+                    id="inp-director"
+                  />
+                </div>
 
-          <!-- Gen1 -->
-          <input
-            type="radio"
-            id="femenino"
-            name="genero"
-            value=""
-            required
-          />
-          <label for="femenino">Femenino</label><br />
+                <div class="col-md-6">
+                  <label class="form-label">Duración (min) *</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{duracion}"
+                    placeholder="Ej: 148"
+                    id="inp-duracion"
+                  />
+                </div>
 
-          <input type="radio" id="otro" name="genero" value="otro" required />
-          <label for="otro">Otro</label><br /><br />
-        </section>
+                <div class="col-md-6">
+                  <label class="form-label">Género *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{genero}"
+                    placeholder="Ej: Ciencia ficción"
+                    id="inp-genero"
+                  />
+                </div>
 
-        <section>
-          <h2>Información de Contacto</h2>
+                <div class="col-md-6">
+                  <label class="form-label">Clasificación *</label>
+                  <select
+                    class="form-select"
+                    th:field="*{clasificacion}"
+                    id="inp-clasificacion"
+                  >
+                    <option value="">-- Seleccionar --</option>
+                    <option value="G">G — Todos los públicos</option>
+                    <option value="PG">PG — Guía parental</option>
+                    <option value="PG-13">PG-13</option>
+                    <option value="R">R — Restringido</option>
+                    <option value="NC-17">NC-17</option>
+                  </select>
+                </div>
 
-          <label for="email">Correo Electrónico:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="ejemplo@educaand.com"
-            pattern="[a-zA-Z0-9._%+-]+@g\.educaand\.es"
-            title="Introduce tu correo de @g.educaand.es"
-            required
-          /><br /><br />
+                <div class="col-md-6">
+                  <label class="form-label">Idioma</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{idioma}"
+                    placeholder="Ej: Español"
+                    id="inp-idioma"
+                  />
+                </div>
 
-          <label for="telefono">Número de Teléfono:</label>
-          <input
-            type="tel"
-            id="telefono"
-            name="telefono"
-            placeholder="+34 123 456 789"
-            pattern="\+34 [0-9]{3} [0-9]{3} [0-9]{3}"
-            maxlength="15"
-            required
-          /><br /><br />
+                <div class="col-md-6">
+                  <label class="form-label">Formato</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{formato}"
+                    placeholder="Ej: 2D, 3D, IMAX"
+                    id="inp-formato"
+                  />
+                </div>
 
-          <em>*Respetar los espacios.</em>
-          <br /><br />
+                <!-- ── Fechas con Flatpickr custom ── -->
+                <div class="col-md-6">
+                  <label class="form-label">Fecha de estreno *</label>
+                  <input
+                    type="text"
+                    class="form-control custom-date"
+                    th:field="*{fechaEstreno}"
+                    placeholder="YYYY-MM-DD"
+                    id="inp-fechaEstreno"
+                  />
+                </div>
 
-          <label for="direccion">Dirección:</label><br />
-          <!-- Campo de texto, varias líneas, permite ingresar grandes cantidades de texto-->
-          <textarea
-            id="direccion"
-            name="direccion"
-            placeholder="Introduce tu dirección completa"
-            rows="4"
-            cols="50"
-          ></textarea
-          ><br /><br />
-        </section>
+                <div class="col-md-6">
+                  <label class="form-label">Fin de cartelera *</label>
+                  <input
+                    type="text"
+                    class="form-control custom-date"
+                    th:field="*{fechaFinCartelera}"
+                    placeholder="YYYY-MM-DD"
+                    id="inp-fechaFinCartelera"
+                  />
+                </div>
 
-        <!-- Preferencias -->
-        <section>
-          <h2>Preferencias</h2>
+                <div class="col-12">
+                  <label class="form-label">Sinopsis</label>
+                  <textarea
+                    class="form-control"
+                    rows="3"
+                    th:field="*{sinopsis}"
+                    placeholder="Descripción de la película..."
+                  ></textarea>
+                </div>
 
-          <label for="color-preferido">Clasificacion</label>
-            <select name="color-preferido" id="color-preferido">
-                <option value="Azul" style="color: blue">NC-17</option>
-                <option value="Rojo" style="color: red">R</option>
-                <option value="Verde" style="color: rgb(214, 12, 241)">PG-13</option>
-                <option value="Amarillo" style="color: rgb(255, 191, 14)">PG</option>
-                <option value="Amarillo" style="color: rgb(10, 231, 243)">G</option>
-            </select
-          ><br /><br />
+                <div class="col-md-6">
+                  <label class="form-label">Distribuidora</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{distribuidora}"
+                    placeholder="Ej: Warner Bros"
+                  />
+                </div>
 
-          <label for="urlFavorita">Url Imagen:</label>
-          <input
-            type="url"
-            id="urlFavorita"
-            name="urlFavorita"
-            placeholder="https://example.com"
-            required
-          /><br /><br />
+                <div class="col-md-6">
+                  <label class="form-label">URL de imagen</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{imagen}"
+                    placeholder="https://..."
+                    id="inp-imagen"
+                  />
+                </div>
+              </div>
 
-          <label for="kaiju-favorito">Genero:</label>
-          <input
-            list="kaijus"
-            id="kaiju-favorito"
-            name="kaiju-favorito"
-            pattern="^\w+$"
-          />
+              <div class="d-flex gap-2 mt-4">
+                <button
+                  type="button"
+                  class="btn btn-outline-info"
+                  onclick="aplicarPreview()"
+                >
+                  Aplicar preview
+                </button>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <a
+                  th:if="${movie.id != 0}"
+                  th:href="@{/movie/editar}"
+                  class="btn btn-outline-secondary ms-auto"
+                >
+                  Cancelar
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
 
-          <datalist id="kaijus">
-            <option value="Drama"></option>
-            <option value="Tragedia"></option>
-            <option value="Accion"></option>
-            <option value="Comedia"></option>
-          </datalist>
-          <br /><br />
+        <!-- COLUMNA SIDEBAR -->
+        <div class="col-md-4">
+          <div class="preview-sidebar">
+            <p class="section-title text-center">Vista previa</p>
+            <div
+              th:replace="~{fragmentos/sidebarPreview :: sidebarPreview}"
+            ></div>
+          </div>
+        </div>
+      </div>
 
-          <label for="corrienteArtistica"
-            >Corriente artística preferida</label>
-          <input
-            list="corrientesArtisticas"
-            id="corrienteArtistica"
-            name="corrienteArtistica"
-            placeholder="Ejemplo: Surrealismo"/>
-          <datalist id="corrientesArtisticas">
-            <option value="Renacimiento"></option>
-            <option value="Barroco"></option>
-            <option value="Realismo"></option>
-            <option value="Impresionismo"></option>
-            <option value="Cubismo"></option>
-            <option value="Surrealismo"></option>
-            <option value="Pop Art"></option>
-          </datalist>
-          <br /><br />
-          <!-- Espacio adicional -->
-          <label for="archivo">*Selecciona un archivo de ejemplo:</label>
-          <input type="file" id="archivo" /> <br /><br />
+      <!-- ── CARDS EXISTENTES —── -->
+      <div class="cards-section mt-4">
+        <p class="section-title">Cards existentes</p>
+      <!-- Cards existentes separadas por un gap, y centradas si no ocupan todo el ancho -->
+        <div class="d-flex flex-wrap gap-4 justify-content-center">
+          <div th:each="m : ${movies}">
+            <div
+              th:replace="~{fragmentos/cardPreview :: cardPreview(item=${m}, mostrarBotones=${true})}"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-          <label>Elige a tus hobbits preferidos:</label><br />
-          <input type="checkbox" id="frodo" name="hobbits" value="Frodo" />
-          <label for="frodo"> Frodo</label><br />
-          <input type="checkbox" id="sam" name="hobbits" value="Sam" />
-          <label for="sam"> Sam</label><br />
-          <input type="checkbox" id="merry" name="hobbits" value="Merry" />
-          <label for="merry"> Merry</label><br />
-          <input type="checkbox" id="pippin" name="hobbits" value="Pippin" />
-          <label for="pippin"> Pippin</label><br />
-          <input type="checkbox" id="bilbo" name="hobbits" value="Bilbo" />
-          <label for="bilbo"> Bilbo</label><br />
-          <input type="checkbox" id="Smeagol" name="hobbits" value="smeagol" />
-          <label for="smeagol"> Smeagol (Gollum)</label>
-        </section>
+    <!-- FOOTER -->
+    <div th:replace="~{fragmentos/footer :: footer}"></div>
 
-        <section>
-          <h2>Pequeña Trivia</h2>
-          <label for="rango"
-            >¿Cuál estimas que es el nivel de poder de Paragus (Canon)?</label
-          >
-          <input
-            type="range"
-            id="rango"
-            min="0"
-            max="5000"
-            value="5000"
-            oninput="updateValue(this.value)"/>
-          <span id="rangeValue">5000</span><br />
-          <span id="feedback"></span> <!-- Para mostrar si el valor es correcto -->
-        </section>
-        <br /><br />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script th:src="@{/js/movies.js}"></script>
 
-        <input type="submit" value="Registrar" />
-      </form>
-</body>
+  </body>
 </html>

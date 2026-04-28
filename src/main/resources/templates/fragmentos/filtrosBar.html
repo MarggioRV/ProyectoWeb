@@ -1,0 +1,28 @@
+<div th:fragment="filtrosBar">
+  <div class="filtros-bar">
+    <button
+      class="btn-filtro"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasFiltros"
+    >
+      Formato
+    </button>
+    <button
+      class="btn-filtro"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasFiltros"
+    >
+      Idioma
+    </button>
+    <input
+      type="number"
+      class="btn-filtro"
+      placeholder="Año"
+      min="1888"
+      max="2100"
+      onchange="if (this.value) window.location = '/movies?anio=' + this.value;"
+    />
+  </div>
+</div>

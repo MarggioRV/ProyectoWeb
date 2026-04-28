@@ -1,6 +1,8 @@
 package com.example.ProyectoWeb.dto;
 
 import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 public class Movies {
 
     private long id;
@@ -12,7 +14,9 @@ public class Movies {
     private String idioma;
     private String imagen;
     private String clasificacion;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)   // Formatear automáticamente campos de fecha
     private LocalDate fechaEstreno;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)  // Formatear automáticamente campos de fecha
     private LocalDate fechaFinCartelera;
     private int duracion;
     private String distribuidora;

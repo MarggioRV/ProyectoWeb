@@ -1,9 +1,94 @@
-<div th:fragment="carrusel1">
-  <div class="carousel-item">
-    <img src="..." alt="...">
-    <div class="carousel-caption d-none d-md-block">
-      <h5>...</h5>
-      <p>...</p>
+<div th:fragment="carrusel1(lista)">
+
+  <!-- Carrusel principal Bootstrap -->
+  <!-- data-bs-ride="carousel" hace que cambie automáticamente -->
+  <div id="carouselHero" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicadores inferiores (puntitos) -->
+    <div class="carousel-indicators">
+
+      <!-- Se repite un botón por cada película de la lista -->
+      <!-- th:each recorre lista -->
+      <!-- i.index genera posición: 0,1,2...y first detecta el 1er elemento -->
+      <button
+        th:each="movie, i : ${lista}"
+        type="button"
+        data-bs-target="#carouselHero"
+        th:data-bs-slide-to="${i.index}"
+        th:classappend="${i.first} ? 'active'"
+      ></button>
+
     </div>
+
+    <!-- Contenedor de slides -->
+    <!-- max-height limita altura total -->
+    <div class="carousel-inner" style="max-height: 500px; overflow: hidden">
+
+      <!-- Asig de slide x película -->
+      <div
+        th:each="movie, i : ${lista}"
+        class="carousel-item"
+        th:classappend="${i.first} ? 'active'"
+      >
+
+        <!-- Imagen de la película -->
+        <!-- th:src coloca la imagen dinámica -->
+        <!-- th:alt coloca texto alternativo -->
+        <img
+          th:src="${movie.imagen}"
+          class="d-block mx-auto"
+          style="
+            height: 400px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;"
+          th:alt="${movie.titulo}"
+        />
+
+        <!-- Texto encima de la imagen -->
+        <!-- d-none d-md-block = oculto en móvil, visible en pantallas medianas -->
+        <div
+          class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2"
+        >
+
+          <!-- Título -->
+          <h5 th:text="${movie.titulo}">Título</h5>
+
+          <!-- Sinopsis -->
+          <p th:text="${movie.sinopsis}">Sinopsis</p>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Botón anterior -->
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselHero"
+      data-bs-slide="prev"
+    >
+
+      <!-- Icono flechaI -->
+      <span class="carousel-control-prev-icon"></span>
+      <span class="visually-hidden">Previous</span>
+
+    </button>
+
+    <!-- Botón siguiente -->
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselHero"
+      data-bs-slide="next"
+    >
+
+      <!-- Icono flechaD -->
+      <span class="carousel-control-next-icon"></span>
+      <span class="visually-hidden">Next</span>
+
+    </button>
+
   </div>
 </div>

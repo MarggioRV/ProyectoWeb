@@ -1,38 +1,86 @@
-<html lang="en">
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title th:text="${movie.titulo}">Detalle</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/detalle.css}" />
+    <link rel="stylesheet" th:href="@{/css/general.css}" />
   </head>
   <body>
-    <main class="movie-detail-layout">
-      <div class="movie-columns">
-        <!-- Columna izquierda -->
-        <div class="movie-col-left">
-          <div
-            th:replace="fragmentos/movie-image :: image(movie=${movie})"
-          ></div>
-          <div th:replace="fragmentos/InMain1 :: InMain1(movie=${movie})"></div>
+    <!-- NAVBAR -->
+    <div th:replace="~{fragmentos/navbar2 :: navbar}"></div>
+
+    <div class="container py-4">
+      <!-- FILA PRINCIPAL -->
+      <div class="row g-4 mb-4">
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="col-md-4">
+          <div class="panel-main">
+            <!-- Imagen -->
+            <div class="movie-image">
+              <img th:src="${movie.imagen}" alt="Poster" />
+            </div>
+
+            <hr class="divider" />
+
+            <!-- Info main -->
+            <div
+              th:replace="~{fragmentos/inMain1 :: inMain1(movie=${movie})}"
+            ></div>
+          </div>
         </div>
 
-        <!-- Columna derecha -->
-        <div class="movie-col-right">
-          <div
-            th:replace="fragmentos/selectorsOp :: selectorsOp(movie=${movie})"
-          ></div>
+        <!-- COLUMNA DERECHA -->
+        <div class="col-md-8">
+          <div class="panel-extra">
+            <!-- Título, color según género -->
+            <section>
+              <!-- Classappend sirve para agregar clases dinámicamente -->
+              <h2
+                class="titulo-genero"
+                th:classappend="'genero-' + ${#strings.replace(movie.genero, ' ', '')}"
+                th:text="${movie.titulo}"
+              >
+                Título
+              </h2>
+            </section>
 
-          <div
-            th:replace="fragmentos/infoExtra :: infoExtra(movie=${movie})"
-          ></div>
+            <!-- D -->
+            <hr class="divider" />
+
+            <!-- Formato e Idioma — badges -->
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap">
+              <span
+                class="fmt-badge"
+                th:classappend="'fmt-' + ${movie.formato}"
+                th:text="${movie.formato}"
+              >
+              </span>
+              <span class="idioma-badge" th:text="${movie.idioma}"> </span>
+            </div>
+
+            <!-- D -->
+            <hr class="divider" />
+
+            <!-- Info extra -->
+            <div
+              th:replace="~{fragmentos/infoExtra :: infoExtra(movie=${movie})}"
+            ></div>
+          </div>
         </div>
       </div>
 
-      <!-- Carrusel inferior -->
-      <div class="movie-bottom">
-        <div
-          th:replace="fragmentos/carrusel1 :: carrusel1(movie=${movie})"
-        ></div>
-      </div>
-    </main>
+      <!-- CARRUSEL — resolver -->
+      <!--
+    <div class="carrusel-section">
+        <div th:replace="~{fragmentos/carrusel1 :: carrusel1(...)}"></div>
+    </div>
+    --></div>
+
+    <!-- FOOTER -->
+    <div th:replace="~{fragmentos/footer :: footer}"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

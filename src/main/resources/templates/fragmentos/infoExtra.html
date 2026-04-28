@@ -1,33 +1,44 @@
-<!-- fragmentos/infoExtra.html -->
-<div th:fragment="infoExtra(movie)">
-
-    <div class="movie-info-extra">
-
-        <div class="info-item">
-            <h3>Plataforma donde ver</h3>
-            <p th:text="${movie.plataforma}"></p>
-        </div>
-
-        <div class="info-item">
-            <h3>Fecha Estreno</h3>
-            <p th:text="${movie.fechaEstreno}"></p>
-        </div>
-
-        <div class="info-item">
-            <h3>Salida de Cartelera</h3>
-            <p th:text="${movie.fechaFinCartelera}"></p>
-        </div>
-
-        <div class="info-item">
-            <h3>Fecha esperada streaming</h3>
-            <p th:text="${movie.fechaStreaming}"></p>
-        </div>
-
-        <div class="info-item">
-            <h3>Idioma</h3>
-            <p th:text="${movie.idioma}"></p>
-        </div>
-
+<div th:fragment="infoExtra(movie)" xmlns:th="http://www.thymeleaf.org">
+  <div class="movie-info-extra" style="display: flex; flex-direction: column; gap: 1rem">
+    
+    <div class="info-item">
+      <p class="label">Director</p>
+      <p class="valor" th:text="${movie.director}"></p>
     </div>
 
+    <div class="info-item">
+      <p class="label">Fecha de estreno</p>
+      <p
+        class="valor"
+        th:text="${movie.fechaEstreno != null ?
+                   #temporals.format(movie.fechaEstreno, 'dd/MM/yyyy') :
+                   'No disponible'}"
+      ></p>
+    </div>
+
+    <div class="info-item">
+      <p class="label">Salida de cartelera</p>
+      <p
+        class="valor"
+        th:text="${movie.fechaFinCartelera != null ?
+                   #temporals.format(movie.fechaFinCartelera, 'dd/MM/yyyy') :
+                   'No disponible'}"
+      ></p>
+    </div>
+
+    <div class="info-item">
+      <p class="label">Fecha esperada en streaming</p>
+      <p
+        class="valor"
+        th:text="${movie.fechaFinCartelera != null ?
+                   #temporals.format(movie.fechaFinCartelera.plusMonths(3), 'dd/MM/yyyy') :
+                   'No disponible'}"
+      ></p>
+    </div>
+
+    <div class="info-item">
+      <p class="label">Distribuidora</p>
+      <p class="valor" th:text="${movie.distribuidora ?: 'No disponible'}"></p>
+    </div>
+  </div>
 </div>

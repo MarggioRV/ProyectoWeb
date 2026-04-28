@@ -1,0 +1,52 @@
+<!-- Mostrar/ocultar botones -->
+<div th:fragment="cardPreview(item, mostrarBotones)"
+     class="card movie-card mx-auto shadow"
+     th:classappend="${!mostrarBotones} ? 'card-clickable' : ''"
+     th:onclick="${!mostrarBotones} ? 'window.location=\'/movies/' + ${item.id} + '\'' : ''">
+     
+
+  <!-- HEADER -->
+  <div class="movie-header position-relative d-flex flex-column">
+    <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between px-3 py-1 fw-semibold small text-dark">
+      <span th:text="${item.genero}">Genero</span>
+      <span th:text="${item.duracion + ' min'}">120 min</span>
+    </div>
+    <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+      <img th:src="${item.imagen}" alt="imagen" class="movie-img"/>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="card-body text-center">
+    <h5 class="movie-title" th:text="${item.titulo}">TÍTULO</h5>
+    <div class="row mt-3 text-info-custom">
+      <div class="col p-1">
+        <div th:text="${item.formato}">Formato</div>
+        <small>Formato</small>
+      </div>
+      <div class="col p-1 border-start border-end border-light-subtle">
+        <div th:text="${item.idioma}">Idioma</div>
+        <small>Idioma</small>
+      </div>
+      <div class="col p-1">
+        <div th:text="${item.clasificacion}">+12</div>
+        <small>Clasificación</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTONES -->
+  <div th:if="${mostrarBotones}" class="d-flex gap-1 justify-content-center mt-2">
+    <a th:href="@{/movie/editar/{id}(id=${item.id})}" class="btn-editar-card">Editar</a>
+    <form th:action="@{/movie/eliminar/{id}(id=${item.id})}" method="post">
+      <button type="submit" class="btn-eliminar-card"
+              onclick="return confirm('¿Eliminar esta película?');">
+        Eliminar
+      </button>
+    </form>
+  </div>
+
+</div>
+
+<!-- </body>
+</html> -->

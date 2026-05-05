@@ -12,27 +12,37 @@ import com.example.ProyectoWeb.dto.Movies;
 @Service
 public class MovieService {
 
+    // URL base del backend
     private final String URL = "http://localhost:8081/movies";
+
+    // Cliente HTTP para consumir la API
     private final RestTemplate restTemplate = new RestTemplate();
 
+    // Consiguir todas las películas desde la API (Get)
     public List<Movies> getAllMovies() {
+        // Llama al endpoint GET /movies y recibe un array JSON
         Movies[] response = restTemplate.getForObject(URL, Movies[].class);
+        // Convierte el array a lista y lo retorna
         return Arrays.asList(response);
     }
 
+    // Obtiener la movie x ID (Get)
     public Movies getMovieById(int id) {
-        // Obtener data de la movie desde la API
+        // Llama al endpoint GET /movies/{id} y retorna la película
         return restTemplate.getForObject(URL + "/" + id, Movies.class);
     }
 
+    // Crear una nueva movie (POST)
     public Movies crearMovie(Movies movie) {
         return restTemplate.postForObject(URL, movie, Movies.class);
     }
 
+    // Actualizar una película existente (PUT)
     public void actualizarMovie(int id, Movies movie) {
         restTemplate.put(URL + "/" + id, movie);
     }
 
+    // Eliminar una movie existente
     public void eliminarMovie(int id) {
         restTemplate.delete(URL + "/" + id);
     }

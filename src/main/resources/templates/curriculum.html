@@ -1,37 +1,329 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-   <head>
-      <style>
-        body {
-          background: rgb(204,204,204); 
-          width: 21cm;
-          height: 29.7cm;
-          margin: 0 auto;
-        }
+  <head>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Julius+Sans+One&family=Open+Sans&family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/i.css}" />
+  </head>
+  <body>
+    <page size="A4">
+      <div class="container">
+        <div class="leftPanel">
+          <!-- Imagen -->
+          <img th:src="@{/Images/avatar.jpg}" alt="Avatar" />
 
-        page {
-          background: white;
-          display: block;
-          margin: 0 auto;
-          margin-bottom: 0.5cm;
-          position: relative;
-        }
+          <div class="details">
+            <div class="item bottomLineSeparator">
+              <h2>CONTACTO</h2>
+              <div class="smallText">
+                <p>
+                  <i class="fa fa-phone contactIcon" aria-hidden="true"></i>
+                  (+34) 665 54 53 35
+                </p>
+                <p>
+                  <i class="fa fa-envelope contactIcon" aria-hidden="true"></i>
+                  <a href="mailto:lorem@ipsum.com@gmail.com">
+                    marggiorobles@gmail.com
+                  </a>
+                </p>
+                <p>
+                  <i
+                    class="fa fa-map-marker contactIcon"
+                    aria-hidden="true"
+                  ></i>
+                  Los Gallardos, España
+                </p>
+                <p>
+                  <i
+                    class="fa fa-linkedin-square contactIcon"
+                    aria-hidden="true"
+                  ></i>
+                  <a href="#"> in/loremipsum </a>
+                </p>
+              </div>
+            </div>
+            <div class="item bottomLineSeparator">
+              <h2>SKILLS PRINCIPALES</h2>
+              <div class="smallText">
+                <div class="skill">
+                  <div>
+                    <span>Java</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Medio</span>
+                  </div>
+                </div>
 
-        page[size="A4"] {  
-          width: 21cm;
-          height: 29.7cm; 
-        }
+                <div class="skill">
+                  <div>
+                    <span>JavaScript</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Medio</span>
+                  </div>
+                </div>
 
-        @page {
-          size: 21cm 29.7cm;
-          margin: 0mm;
-        }
-      </style>
-   </head>
-   <body>
-      <page size="A4">
-      </page>
-      <page size="A4">
-      </page>
-   </body>
+                <div class="skill">
+                  <div>
+                    <span>Pack Office</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Alto</span>
+                  </div>
+                </div>
+
+                <div class="skill">
+                  <div>
+                    <span>VisualStudio</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Medio</span>
+                  </div>
+                </div>
+
+                <div class="skill">
+                  <div>
+                    <span>IntelliJ IDEA</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Medio</span>
+                  </div>
+                </div>
+
+                <div class="skill">
+                  <div>
+                    <span>Photoshop</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Medio</span>
+                  </div>
+                </div>
+
+                <div class="skill">
+                  <div>
+                    <span>Workbench</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Alto</span>
+                  </div>
+                </div>
+
+                <div class="skill">
+                  <div>
+                    <span>NetBeans</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Básico</span>
+                  </div>
+                </div>
+
+                <div class="skill">
+                  <div>
+                    <span>Oracle</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Medio</span>
+                  </div>
+                </div>
+
+                <div class="skill">
+                  <div>
+                    <span>Git y GitHub</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Alto</span>
+                  </div>
+                </div>
+
+                <div class="skill">
+                  <div>
+                    <span>Blender</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Básico</span>
+                  </div>
+                </div>
+
+                <div class="skill">
+                  <div>
+                    <span>CSS y HTML</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Alto</span>
+                  </div>
+                </div>
+
+                <div class="skill">
+                  <div>
+                    <span>Ingles</span>
+                  </div>
+                  <div class="yearsOfExperience">
+                    <span class="alignright">nv</span>
+                    <span class="alignleft">Medio</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <h2>EDUCACION</h2>
+              <p>2005 - 2026</p>
+              <br />
+              <div class="smallText">
+                <p class="bolded white">Bachillerato</p>
+                <p>En ciencia y Tecnologia</p>
+                <br />
+                <p class="bolded white">Primaria-Secuandaria</p>
+                <p>Barranca, Perú</p>
+                <br />
+                <p class="bolded white">FP Daw</p>
+                <p>CuraValera, Huercal Overa</p>
+                <br />
+                <p class="bolded white">Cursos Online (En proceso)</p>
+                <ul>
+                  <li>Next.js</li>
+                  <li>TypeScript</li>
+                  <li>Laravel</li>
+                  <li>Figma</li>
+                  <li>Blender</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rightPanel">
+          <div>
+            <h1>Marggio Martin Robles Vargas</h1>
+            <div class="smallText">
+              <h3>Desarrollador Web, Programador Jr</h3>
+            </div>
+          </div>
+          <div>
+            <h2>Sobre mi...</h2>
+            <div class="smallText">
+              <p>
+                Soy originario de Perú y, actualmente resido en España. Me
+                interesa especialmente el mundo del desarrollo y disfruto
+                investigando y aprendiendo nuevas tecnologías de forma constante
+                (Aunado a mi habito de lectura). Me considero una persona
+                dedicada, con una gran anhelo y perseverancia en todo lo que
+                hago. Aunque puedo ser algo introspectivo en ocasiones, trabajo
+                de manera asertiva, intentado comunicarme y adaptarme a
+                distintas situaciones y/o personas.
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="workExperience">
+            <h2>Perfil Profesional</h2>
+            <ul>
+              <li>
+                <div class="jobPosition">
+                  <span class="bolded"> Experiencia de Trabajo </span>
+                  <span> Jun 2025 - Sept 2025 </span>
+                </div>
+                <div class="projectName bolded">
+                  <span> Prácticas Técnica | Punto Vuela </span>
+                </div>
+                <div class="smallText">
+                  <p>
+                    Brindé soporte básico en equipos informáticos, resolviendo
+                    incidencias relacionadas con hardware y redes, así como
+                    realizando tareas de configuración y mantenimiento básico
+                    tanto en sistemas Windows como en Linux. Además, colaboré en
+                    actividades formativas dirigidas tanto a adultos como a
+                    niños, ofreciendo atención al usuario, asistencia en el uso
+                    de herramientas digitales y una comunicación adaptada según
+                    las necesidades y el perfil de cada persona.
+                  </p>
+                  <p>
+                    <span class="bolded">Skills: </span>Windows, Linux, Redes,
+                    Hardware, Atención al cliente.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <div class="jobPosition">
+                  <span class="bolded">Conocimientos Técnicos Usados</span>
+                  <span> Nov 2020 - Sept 2021 </span>
+                </div>
+
+                <div class="projectName bolded">
+                  <span>Estudiado y puesto en Practica</span>
+                </div>
+                <br />
+                <div class="smallText">
+                  <ul>
+                    <li>React</li>
+                    <li>Bootstrape</li>
+                    <li>Chart</li>
+                    <li>NPM</li>
+                    <li>Java Swing</li>
+                    <li>Gson</li>
+                    <li>JDBC</li>
+                    <li>mysql-connector</li>
+                    <li>Jackson</li>
+                    <li>Flatpickr</li>
+                    <li>jQuery</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <div class="jobPosition">
+                  <span class="bolded"> Proyectos Actuales</span>
+                  <span> abril 2026 - junio 2026 </span>
+                </div>
+                <div class="projectName bolded">
+                  <span> Proyecto SpringBoot | Company name </span>
+                </div>
+                <div class="smallText">
+                  <p>
+                    En base a conocimientos obtenidos en clase implemente dos
+                    proyectos "Api" y "Web", encargados del Backend y Fronted
+                    respectivamente, que en conjunción dan como resultado una
+                    pagina dinamica que efectua metodos crud y presenta una interfaz
+                    responsive. En mi caso, se desplieag por SpringBoot,
+                    mientras que el apartado esticio recae casi en su totalidad
+                    Bootstrap. 
+                  </p>
+                  <br>
+                  <ul>
+                    <li>https://github.com/MarggioRV/ProyectoApi.git</li>
+                    <li>https://github.com/MarggioRV/ProyectoWeb.git</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </page>
+    <page size="A4">
+      <div class="container">
+        <div class="leftPanel"></div>
+        <div class="rightPanel"></div>
+      </div>
+    </page>
+  </body>
 </html>

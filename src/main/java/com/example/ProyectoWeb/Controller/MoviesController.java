@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class MoviesController {
 
-        @Autowired
+        @Autowired 
         private MovieService movieService; // Declaracion_Dependencia
 
         @GetMapping("/")
@@ -29,25 +29,23 @@ public class MoviesController {
         }
 
         // Listado con filtrado (op) por clasificacion, formato e idioma
-        @GetMapping("/movies")
+        @GetMapping("/movies") //GetMapping me envia a la url
         public String viewMovies(
 
-                        // Rcb filtro de clasificación desde la URL
-                        @RequestParam(value = "clasificacion", required = false) String clasificacion, // required
-                                                                                                       // false,
-                                                                                                       // significa
-                                                                                                       // opcional
+                // Rcb filtro de clasificación desde la URL
+                @RequestParam(value = "clasificacion", required = false) String clasificacion, // require false, significa opcional
 
-                        // Rcb filtro de formato
-                        @RequestParam(value = "formato", required = false) String formato,
+                // Rcb filtro de formato
+                @RequestParam(value = "formato", required = false) String formato,
 
-                        // Rcb filtro de idioma
-                        @RequestParam(value = "idioma", required = false) String idioma,
-
-                        // Rcb filtro de año
-                        @RequestParam(value = "anio", required = false) Integer anio,
-                        // Objeto send
-                        Model model) {
+                // Rcb filtro de idioma
+                @RequestParam(value = "idioma", required = false) String idioma,
+                
+                // Rcb filtro de año
+                @RequestParam(value = "anio", required = false) Integer anio,
+                
+                // Objeto send
+                 Model model) {
 
                 // Obtener todas las películas desde el service
                 List<Movies> lista = movieService.getAllMovies();
@@ -142,7 +140,7 @@ public class MoviesController {
         }
 
         // Actualizar película
-        @PostMapping("/movie/editar/{id}")
+        @PostMapping("/movie/editar/{id}") // PosMapping me envia a la url
         public String actualizarMovie(@PathVariable int id, @ModelAttribute Movies movie, RedirectAttributes ra) {
                 try {
                         // Llamada al servicio para actualizar
@@ -231,5 +229,11 @@ public class MoviesController {
 
                 // Sin resultados = pagina error
                 return "error1";
+        }
+
+        // PE-currículum
+        @GetMapping("/movie/curriculum")
+        public String about() {
+                return "curriculum";
         }
 }

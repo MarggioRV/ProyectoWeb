@@ -38,6 +38,7 @@
   <!-- BOTONES -->
   <div th:if="${mostrarBotones}" class="d-flex gap-1 justify-content-center mt-2">
     <a th:href="@{/movie/editar/{id}(id=${item.id})}" class="btn-editar-card">Editar</a>
+    <!-- ! -->
     <form th:action="@{/movie/eliminar/{id}(id=${item.id})}" method="post">
       <button type="submit" class="btn-eliminar-card"
               onclick="return confirm('¿Eliminar esta película?');">
